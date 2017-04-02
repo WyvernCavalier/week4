@@ -31,6 +31,8 @@ namespace ConsoleApplication1
             Stocking.Add(new BookStock(AoS, new decimal(19.99), 5));
             Stocking.Add(new BookStock(ToB, new decimal(14.99), 202));
             Stocking.Add(new BookStock(TLG, new decimal(34.99), 5));
+            Produce_Report(Stocking);
+            
 
         }
 
@@ -39,11 +41,11 @@ namespace ConsoleApplication1
                 Console.WriteLine(x);
             
         }
-        static void Produce_Report (){
+        static void Produce_Report (IReadOnlyCollection<Book> stocks){
             Console.WriteLine(new string('#',40));
             Console.WriteLine("#" + "quantity" + "\t#" + "Title" + "(" + "Year" + ")" + "\t#" + "price" + "\t#");
             Console.WriteLine(new string('#', 40));
-            foreach (BookStock x in Stocking)
+            foreach (BookStock x in stocks)
                 Console.WriteLine(x);
             Console.WriteLine(new string('#', 40));
 
